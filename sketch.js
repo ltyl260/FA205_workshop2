@@ -8,6 +8,7 @@ function setup() {
   duck5 = new Duck(random(width),random(height),random(100));
   duck6 = new Duck(random(width),random(height),random(100));
   duck7 = new Duck(random(width),random(height),random(100));
+  tic = 0;
 }
 
 class Duck {
@@ -97,16 +98,21 @@ class Duck {
     this.zoom(this.z,this.z+100);
     this.show();
   }
+  setTimeout(x){
+    if (tic > x){
+      this.animate();
+    }
+  }
 }
 
 function draw(){  
+  tic += 1;
   // background(200,200,200);
-  duck1.animate();
-  duck2.animate();
-  duck3.animate();
-  duck4.animate();
-  duck5.animate();
-  duck6.animate();
-  duck7.animate();
+  duck1.setTimeout(50);
+  duck2.setTimeout(100);
+  duck3.setTimeout(150);
+  duck4.setTimeout(200);
+  duck5.setTimeout(250);
+  duck6.setTimeout(300);
+  duck7.setTimeout(350);
 }
-
